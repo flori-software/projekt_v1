@@ -14,9 +14,9 @@ class Plausi {
   public function emailtest($wert) {
     $fehler = 0;
     // Test notwendige E-Mail-Struktur
-    if (!preg_match("/\w+@\w+\.\w{2}/", $wert)) {
+    if (!preg_match("/^[0-9a-z]\w+@\w+\.[0-9a-z]{2,4}$/i", $wert)) {
         $fehler++; 
-    }
+    } 
     // nichtalphanumerische Zeichen – außer dem Zeichen @ 
     if (preg_match("/\W/", $wert, $ergarray)) {
         if ($ergarray[0] != "@")
