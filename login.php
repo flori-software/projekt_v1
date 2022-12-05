@@ -14,11 +14,19 @@
      <div id="content">
        <h1>Login</h1>
        <?php
+       require("login.inc.php");
        /**
 * Image2Food
 * Das soziale, multimediale Netzwerk für Kochideen * Die Login-Seite
 */
        class Login {
+        private function anmelden_db() {
+
+        }
+
+        public function _login() {
+          
+        }
        }
        ?>
      </div>
