@@ -32,7 +32,7 @@
           if ($this -> plausibilisieren()) {
             $this -> eintragen_db();
           }
-    }
+        }
         /**
          * Plausibilisierungsmethode
          * Testet die einzelnen Eingabefelder des

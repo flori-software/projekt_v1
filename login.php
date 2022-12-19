@@ -25,9 +25,32 @@
         }
 
         public function _login() {
+          if ($this -> plausibilisieren()) {
+            $this -> anmelden_db();
+          }
+        }
+
+        private function plausibilisieren() {
+          // Fehlervariable
+          $anmelden = 0;
+          $p = new Plausi();
+          $anmelden += $p -> nutzerdatentest($_POST['userid']); 
+          $anmelden += $p -> nutzerdatentest($_POST['pw']);
           
+          // Testausgaben für den derzeitigen Stand
+          // des Projekts
+          echo "Die Eingaben: <hr>";
+          print_r($_POST);
+          echo "<br>Fehleranzahl: " . $anmelden . "<hr>";
+          if ($anmelden == 0) return true;
+          else return false;
         }
        }
+
+      $anmeldeObjekt = new Login();
+      if (sizeof($_POST) > 0) {
+        $anmeldeObjekt -> _login();
+      }
        ?>
      </div>
    </body>
