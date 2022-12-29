@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -73,7 +76,26 @@
          * zur Verfügung
          */
         private function eintragen_db() {
+          require("db.inc.php");
+          try {
+            $stmt = $pdo->prepare("INSERT INTO mitglieder (name, vorname, email, zusatzinfos, rolle, userid, pw) VALUES (:name, :vorname, :email, :zusatzinfos, :rolle, :userid, :pw)");
+            $stmt->execute(array(
+              ':name' => $_POST["name"],
+              ':vorname' => $_POST["vorname"],
+              ':email' => $_POST["email"],
+              ':zusatzinfos' => $_POST["zusatzinfos"],
+              ':rolle' => "Mitglied",
+              ':userid' => $_POST["userid"],
+              ':pw' => md5($_POST["pw"])
+            ));
 
+            $_SESSION["name"] = $_POST["userid"];
+            $_SESSION["login"] = "false";
+            $dat = "index.php";
+          } catch (PDOException $e) {
+            $dat = "regfehler.php";
+          }
+          header("Location: $dat");
         }
       }
 
