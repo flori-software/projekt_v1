@@ -1,5 +1,6 @@
 <?php
 session_start();
+setcookie(name: "Image2Food", value: time(), expires_or_options: time()+10368000);
 if (0 > version_compare(PHP_VERSION, '7')) {
 die('<h1>Für diese Anwendung ' . 'ist mindestens PHP 7
    notwendig</h1>');
@@ -32,7 +33,7 @@ require("nav.php");
 <?php
 class Index {
   function besucher() {
-    echo "<div id='indextext'>Willkommen auf unserer Website. SChauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.</div>";
+    echo "<div id='indextext'>Willkommen auf unserer Website. Schauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.</div>";
   }
 }
 $obj = new Index();

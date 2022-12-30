@@ -77,6 +77,8 @@
          */
         private function eintragen_db() {
           require("db.inc.php");
+          echo "INSERT INTO mitglieder (name, vorname, email, zusatzinfos, rolle, userid, pw) VALUES ('".$_POST["name"]."', '".$_POST["vorname"]."', '".$_POST["email"]."', '".$_POST["zusatzinfos"]."', 'Mitglied', '".$_POST["userid"]."', '".md5($_POST["pw"])."')";
+          
           try {
             $stmt = $pdo->prepare("INSERT INTO mitglieder (name, vorname, email, zusatzinfos, rolle, userid, pw) VALUES (:name, :vorname, :email, :zusatzinfos, :rolle, :userid, :pw)");
             $stmt->execute(array(
@@ -96,7 +98,9 @@
             $dat = "regfehler.php";
           }
           header("Location: $dat");
+          
         }
+        
       }
 
       $regobj = new Registrierung();
