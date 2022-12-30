@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
  <!DOCTYPE html>
  <html lang="de">
    <head>
@@ -21,7 +24,25 @@
 */
        class Login {
         private function anmelden_db() {
-
+          $vorhanden = false;
+          require("db.inc.php");
+          if($stmt = $pdo->prepare("SELECT userid, pw FROM mitglieder")) {
+            $stmt->execute();
+            while($row = $stmt->fetch()) {
+              if(isset($_POST["userid"]) && $_POST["userid"] == $row['userid'] && md5($_POST["pw"]) == $row['pw']) {
+                $vorhanden = true;
+                break;
+              }
+            }
+          }
+          if($vorhanden) {
+            $_SESSION["name"] = $_POST["userid"];
+            $_SESSION["login"] = "true";
+            $dat = "index.php";
+          } else {
+            $dat = "loginfehler.php";
+          }
+          header("Location: $dat");
         }
 
         public function _login() {
