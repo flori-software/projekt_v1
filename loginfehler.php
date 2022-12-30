@@ -20,7 +20,13 @@ require("nav.php");
 <h1>Anmeldefehler</h1>
 <?php
 require("login.inc.php");
-
+class LoginFehler {
+    public function fehler() {
+        echo "<h4>Die Anmeldedaten waren leider falsch</h4>"."<a href='login.php'>Neu anmelden</a>";
+    }
+}
+$loginobj = new LoginFehler();
+$loginobj -> fehler();
 ?>
 </div>
 </body>
