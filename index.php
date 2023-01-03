@@ -22,7 +22,7 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"] == "true")) {
 } else {
   require("nav.php");
 }
-require("nav.php");
+
 ?> 
 </div>
      <div id="content">
@@ -33,6 +33,17 @@ require("nav.php");
 <?php
 class Index {
   function besucher() {
+    /*
+    if() {
+
+    } else if() {
+
+    } else if() {
+
+    } else {
+
+    }
+    */
     echo "<div id='indextext'>Willkommen auf unserer Website. Schauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.</div>";
   }
 }
