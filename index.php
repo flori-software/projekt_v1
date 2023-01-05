@@ -33,18 +33,19 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"] == "true")) {
 <?php
 class Index {
   function besucher() {
-    /*
-    if() {
-
-    } else if() {
-
-    } else if() {
-
+    
+    if(isset($_SESSION["name"]) && $_SESSION["login"] == true) {
+      $text = "Herzlich WIllkommen ".$_SESSION["name"].", schön, dass Sie wieder da sind!";
     } else {
-
+      $text = "Willkommen auf unserer Website. Schauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.";
     }
+    /*else if() {
+
+    } else if() {
+
+    } 
     */
-    echo "<div id='indextext'>Willkommen auf unserer Website. Schauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.</div>";
+    echo "<div id='indextext'>".$text."</div>";
   }
 }
 $obj = new Index();

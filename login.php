@@ -12,6 +12,7 @@
      <div id="nav">
        <?php
        require("nav.php");
+       require ("plausi.inc.php");
        ?>
      </div>
      <div id="content">
@@ -46,8 +47,12 @@
         }
 
         public function _login() {
+          echo 'Bin in Login<br>';
           if ($this -> plausibilisieren()) {
+            echo 'Plausibilisierung erfolgreich<br>';
             $this -> anmelden_db();
+          } else {
+            echo 'Angaben sind nicht plausibel<br>';
           }
         }
 
@@ -70,7 +75,10 @@
 
       $anmeldeObjekt = new Login();
       if (sizeof($_POST) > 0) {
+        echo 'Anmeldung Benutzer<br>';
         $anmeldeObjekt -> _login();
+      } else {
+        echo 'Melden Sie sich an!';
       }
        ?>
      </div>
