@@ -34,7 +34,7 @@ class Plausi {
     $fehler = 0;
     if (!preg_match("/^\w{8,20}$/", $wert)) {
       $fehler++;
-      echo 'Fehler beim Datrentest - Länge<br>';
+      echo 'Fehler beim Datentest - Länge, Wert: '.$wert.'<br>';
     }
     // Keine Zahl
     if (!preg_match("/\d/", $wert)) {
@@ -42,11 +42,11 @@ class Plausi {
         $fehler++; }
     // Kein Großbuchstabe
     if (!preg_match("/[A-Z]/", $wert)) {
-      echo 'Fehler beim Datrentest - kein Großbuchstabe<br>';
+      echo 'Fehler beim Datrentest - kein Großbuchstabe - '.$wert.'<br>';
         $fehler++; }
     // Kein Kleinbuchstabe
     if (!preg_match("/[a-z]/", $wert)) {
-      echo 'Fehler beim Datrentest - kein Kleinbuchstabe<br>';
+      echo 'Fehler beim Datrentest - kein Kleinbuchstabe - '.$wert.'<br>';
         $fehler++; }
     return $fehler;
   } 

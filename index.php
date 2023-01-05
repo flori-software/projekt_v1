@@ -1,6 +1,8 @@
 <?php
 session_start();
-setcookie(name: "Image2Food", value: time(), expires_or_options: time()+10368000);
+setcookie(name: "Image2Food", value: time(), expires_or_options: time()+7776000);
+
+
 if (0 > version_compare(PHP_VERSION, '7')) {
 die('<h1>Für diese Anwendung ' . 'ist mindestens PHP 7
    notwendig</h1>');
@@ -33,18 +35,21 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"] == "true")) {
 <?php
 class Index {
   function besucher() {
-    
-    if(isset($_SESSION["name"]) && $_SESSION["login"] == true) {
-      $text = "Herzlich WIllkommen ".$_SESSION["name"].", schön, dass Sie wieder da sind!";
+    // Falls ein Benutzer die Seite in der Vergangenheit bereits besucht hat, wird hier die Anzahl der Sekunden seit dem letzten Besuch ermittelt. 
+    $zeitunterschied = time() - $_COOKIE["Image2Food"];
+    echo 'Der Zeitunterschied beträgt '.$zeitunterschied.'<br>';
+    if(isset($_SESSION["name"]) && $_SESSION["login"] == "true") {
+      // Registriert und angemeldet
+      $text = "Herzlich Willkommen ".$_SESSION["name"].", schön, dass Sie wieder da sind!";
+    } else if(isset($_SESSION["name"]) && $_SESSION["login"] == "false") {
+      $text = "Die Registrierung war erfolgreich. Sie können sich jetzt anmelden um den vollen Funktionsumfdang der Webanwendung zu nutzen.";
+    } 
+    else if((time() + 1036800 - $_COOKIE["Image2Food"]) < 7776000) {
+      $text = "Schön, dass Sie wieder vorbeschauen! Schauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.";
     } else {
+      // Neuer Besucher
       $text = "Willkommen auf unserer Website. Schauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.";
     }
-    /*else if() {
-
-    } else if() {
-
-    } 
-    */
     echo "<div id='indextext'>".$text."</div>";
   }
 }

@@ -9,7 +9,7 @@ if (isset($_POST['userid']))
 <span class="fehlermeldung"></span>
 <br>
 <label class="reg_label">Passwort</label>
-<span class="pflichtmarker"> * </span> <input name="passwort" maxlength="30"
+<span class="pflichtmarker"> * </span> <input name="pw" maxlength="30"
 <?php
 if (isset($_POST['passwort']))
     echo "value='" . $_POST['passwort'] . "'";
