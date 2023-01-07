@@ -35,17 +35,13 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"] == "true")) {
 <?php
 class Index {
   public function besucher() {
-    // Falls ein Benutzer die Seite in der Vergangenheit bereits besucht hat, wird hier die Anzahl der Sekunden seit dem letzten Besuch ermittelt. 
-    $zeitunterschied = time() - $_COOKIE["Image2Food"];
-
-    if(isset($_SESSION["name"]) && $_SESSION["login"] == "true") {
+    if(isset($_SESSION["login"]) && $_SESSION["login"] == "true") {
       // Registriert und angemeldet
-      $text = "Herzlich Willkommen ".$_SESSION["name"].", schön, dass Sie wieder da sind!";
-    } else if(isset($_SESSION["name"]) && $_SESSION["login"] == "false") {
+      $text = "Herzlich Willkommen ".$_SESSION["name"].", Sie sind angemeldet und befinden sich im Mitgliederbereich.";
+    } else if(isset($_SESSION["login"]) && $_SESSION["login"] == "false") {
       $text = "Die Registrierung war erfolgreich. Sie können sich jetzt anmelden um den vollen Funktionsumfdang der Webanwendung zu nutzen.";
-    } 
-    else if((time() + 1036800 - $_COOKIE["Image2Food"]) < 1036800) {
-      $text = "Schön, dass Sie wieder vorbeschauen! Schauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.";
+    } else if(isset($_COOKIE["Image2Food"])) {
+      $text = "Schön, dass Sie wieder vorbeschauen! Melden Sie sich an, um in den geschlossenen Mitgliederbereich zu gelangen, wenn Sie sich schon registriert haben.";
     } else {
       // Neuer Besucher
       $text = "Willkommen auf unserer Website. Schauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.";
