@@ -34,17 +34,17 @@ if(isset($_SESSION["login"]) && ($_SESSION["login"] == "true")) {
        für Kochideen</h2>
 <?php
 class Index {
-  function besucher() {
+  public function besucher() {
     // Falls ein Benutzer die Seite in der Vergangenheit bereits besucht hat, wird hier die Anzahl der Sekunden seit dem letzten Besuch ermittelt. 
     $zeitunterschied = time() - $_COOKIE["Image2Food"];
-    echo 'Der Zeitunterschied beträgt '.$zeitunterschied.'<br>';
+
     if(isset($_SESSION["name"]) && $_SESSION["login"] == "true") {
       // Registriert und angemeldet
       $text = "Herzlich Willkommen ".$_SESSION["name"].", schön, dass Sie wieder da sind!";
     } else if(isset($_SESSION["name"]) && $_SESSION["login"] == "false") {
       $text = "Die Registrierung war erfolgreich. Sie können sich jetzt anmelden um den vollen Funktionsumfdang der Webanwendung zu nutzen.";
     } 
-    else if((time() + 1036800 - $_COOKIE["Image2Food"]) < 7776000) {
+    else if((time() + 1036800 - $_COOKIE["Image2Food"]) < 1036800) {
       $text = "Schön, dass Sie wieder vorbeschauen! Schauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.";
     } else {
       // Neuer Besucher
