@@ -38,14 +38,24 @@ class Index {
     if(isset($_SESSION["login"]) && $_SESSION["login"] == "true") {
       // Registriert und angemeldet
       $text = "Herzlich Willkommen ".$_SESSION["name"].", Sie sind angemeldet und befinden sich im Mitgliederbereich.";
+      $this->willkommenstext($text);
+      @include("uploadformular.inc.php");
     } else if(isset($_SESSION["login"]) && $_SESSION["login"] == "false") {
       $text = "Die Registrierung war erfolgreich. Sie können sich jetzt anmelden um den vollen Funktionsumfdang der Webanwendung zu nutzen.";
+      $this->willkommenstext($text);
     } else if(isset($_COOKIE["Image2Food"])) {
       $text = "Schön, dass Sie wieder vorbeschauen! Melden Sie sich an, um in den geschlossenen Mitgliederbereich zu gelangen, wenn Sie sich schon registriert haben.";
+      $this->willkommenstext($text);
     } else {
       // Neuer Besucher
       $text = "Willkommen auf unserer Website. Schauen Sie sich um. Sie können sich hier registrieren und dann in einem geschlossenem Mitgliederbereich anmelden.";
+      $this->willkommenstext($text);
     }
+    
+  }
+
+  private function willkommenstext($text) {
+    // Eigenkreation und das DIV-Element nicht mehrfach zu programmeiren, wegen evtl. späterer Formattierungen etc.
     echo "<div id='indextext'>".$text."</div>";
   }
 }
