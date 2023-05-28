@@ -9,13 +9,16 @@ if (isset($_POST['userid']))
 <span class="fehlermeldung"></span>
 <br>
 <label class="reg_label">Passwort</label>
-<span class="pflichtmarker"> * </span> <input name="pw" maxlength="30"
+<span class="pflichtmarker"> * </span> <input name="pw" maxlength="50"
 <?php
 if (isset($_POST['passwort']))
     echo "value='" . $_POST['passwort'] . "'";
 ?>
 />
-<span class="fehlermeldung"></span>
-<br>
+<span class="fehlermeldung"></span><br>
+<img src="captchagenerieren.php" alt="Captcha"><br>
+<label class="reg_label">Captcha</label>
+<span class="pflichtmarker"> * </span>
+<input name="captcha">
 <input type="submit" value="Daten absenden">
 </form>

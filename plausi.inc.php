@@ -46,5 +46,14 @@ class Plausi {
         $fehler++; }
     return $fehler;
   } 
+
+  public function captchatest($wert):int {
+    $fehler = 0;
+    if($_SESSION["captchacode"] != $wert) {
+      return ++$fehler;
+    } else {
+      return 0;
+    }
+  }
 }
 ?>

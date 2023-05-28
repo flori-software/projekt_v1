@@ -62,7 +62,7 @@
           $p = new Plausi();
           $anmelden += $p -> nutzerdatentest($_POST['userid']); 
           $anmelden += $p -> nutzerdatentest($_POST['pw']);
-          
+          $anmelden += $p -> captchatest($_POST['captcha']);
           // Testausgaben für den derzeitigen Stand
           // des Projekts
           echo "Die Eingaben: <hr>";
