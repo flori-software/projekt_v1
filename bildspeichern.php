@@ -4,7 +4,7 @@ class Bildspeichern {
 
     public function datup() {
         if (isset($_FILES['datei'])) {
-            if (($_FILES['datei']['size'] > 100000) || (filesize($_FILES['datei']['tmp_name']) > 100000)) {
+            if (($_FILES['datei']['size'] > 1000000) || (filesize($_FILES['datei']['tmp_name']) > 1000000)) {
                 echo "Die Dateigröße ist auf " .
                 "100.000 Byte beschränkt.<br>" .
                 "Verkleinern Sie das Bild bitte mit " .
