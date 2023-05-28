@@ -9,6 +9,7 @@ if(0 > version_compare(PHP_VERSION, '7')) {
 <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="lib/css/stil.css">
 </head>
 <body>
 <div id="nav">

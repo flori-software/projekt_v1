@@ -3,6 +3,7 @@
 <head>
 <title>Vorschau</title>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="lib/css/stil.css">
 </head>
 <body>
 <h1>Vorschau</h1>

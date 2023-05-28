@@ -7,7 +7,9 @@
      <meta charset="utf-8">
      <title>Image2Food –
        Sag mir, was ich daraus kochen kann – Login </title>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0"> </head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+     <link rel="stylesheet" href="lib/css/stil.css">
+  </head>
    <body>
      <div id="nav">
        <?php

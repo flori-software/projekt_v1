@@ -15,6 +15,7 @@ die('<h1>Für diese Anwendung ' . 'ist mindestens PHP 7
      <title>Image2Food –
 Sag mir, was ich daraus kochen kann – Index </title> <meta name="viewport" content=
 "width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="lib/css/stil.css">
    </head>
    <body>
      <div id="nav">
