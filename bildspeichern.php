@@ -35,6 +35,9 @@ class Bildspeichern {
                     if ($stmt = $pdo -> prepare("INSERT INTO fragen (bild, zusatzinfos, id_mitglied) VALUES (:bild, :zusatzinfos, :userid)")) {
                         if ($stmt -> execute(array(':bild' => $_SESSION["dateiname"], ':zusatzinfos' => $_POST["zusatzinfos"], ':userid' => $_SESSION["id_mitglied"]))) {
                             $dat = "upload_ok.php";
+                            $_SESSION["upload"] = "Der Dateiupload war ok";
+                            @include("wertupdate.php");
+                            new WertUpdate("fragen", $_SESSION["id_mitglied"]);
                         } else {
                             $dat = "upload_fehler.php";
                         }
