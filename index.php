@@ -41,7 +41,7 @@ class Index {
       $text = "<h3>Herzlich Willkommen</h3>".$_SESSION["name"].", Sie sind angemeldet und befinden sich im Mitgliederbereich.";
       $this->willkommenstext($text);
       @include("uploadformular.inc.php");
-      echo "<a href='vorschaubilder.php' target='vorschau'>Vorschau</a>";
+      @include("vorschau.php");
     } else if(isset($_SESSION["login"]) && $_SESSION["login"] == "false") {
       $text = "Die Registrierung war erfolgreich. Sie können sich jetzt anmelden um den vollen Funktionsumfdang der Webanwendung zu nutzen.";
       $this->willkommenstext($text);
