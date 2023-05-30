@@ -63,5 +63,5 @@ class Thumb {
         echo '</div><h2>Details</h2><div id="detailbereich"></div>';
     }
 }
-
+new Thumb();
 ?>
